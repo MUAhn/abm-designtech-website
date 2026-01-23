@@ -10,11 +10,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      aria-label="Projects Section"
-      className="w-full bg-black py-16 px-4 text-white"
-    >
+    <section id="projects" aria-label="Projects Section" className="w-full bg-black py-16 px-4 text-white">
       <h2 className="text-3xl font-bold text-center mb-12">Our Projects</h2>
 
       <div className="grid md:grid-cols-3 gap-8">

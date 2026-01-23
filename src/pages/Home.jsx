@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logo from "../assets/logo.webp"; // your hero image
+import logo from "../assets/logo.webp"; // import the hero image
 
 export default function Home() {
   return (
