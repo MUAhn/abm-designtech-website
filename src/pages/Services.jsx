@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 export default function Services() {
   const services = [
@@ -6,17 +6,28 @@ export default function Services() {
     { title: "3D BIM Modeling", desc: "Detailed 3D models for visualization, clash detection, and coordination." },
     { title: "4D Construction Planning", desc: "Time-based simulation to optimize construction sequences." },
     { title: "5D Cost Estimation", desc: "Integrated cost planning and quantity takeoffs using BIM." },
-  ];
+  ]
 
   return (
-    <section id="services" aria-label="Services Section" className="min-h-screen pt-24 bg-neutral-950 text-white">
+    <section
+      id="services"
+      aria-label="Services Section"
+      className="min-h-screen pt-24 bg-neutral-950 text-white"
+    >
       <div className="max-w-7xl mx-auto px-8">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
           <h2 className="text-4xl font-bold">
             Our <span className="text-yellow-400">Services</span>
           </h2>
           <p className="text-gray-400 mt-3 max-w-2xl">
-            We provide end-to-end digital construction solutions powered by BIM and modern project workflows.
+            We provide end-to-end digital construction solutions powered by BIM
+            and modern project workflows.
           </p>
         </motion.div>
 
@@ -47,5 +58,5 @@ export default function Services() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

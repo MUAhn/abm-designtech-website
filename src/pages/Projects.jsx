@@ -1,16 +1,21 @@
-import project1 from "../assets/projects/project1.webp";
-import project2 from "../assets/projects/project2.webp";
-import project3 from "../assets/projects/project3.webp";
-
-const projects = [
-  { id: 1, title: "Luxury Residence", img: project1, alt: "Luxury Residence - ABM DesignTech" },
-  { id: 2, title: "Commercial Complex", img: project2, alt: "Commercial Complex - ABM DesignTech" },
-  { id: 3, title: "Office Renovation", img: project3, alt: "Office Renovation - ABM DesignTech" },
-];
+import { motion } from "framer-motion"
+import p1 from "../assets/projects/project1.webp"
+import p2 from "../assets/projects/project2.webp"
+import p3 from "../assets/projects/project3.webp"
 
 export default function Projects() {
+  const projects = [
+    { id: 1, title: "Luxury Residence", img: p1, alt: "Luxury Residence - ABM DesignTech" },
+    { id: 2, title: "Commercial Complex", img: p2, alt: "Commercial Complex - ABM DesignTech" },
+    { id: 3, title: "Office Renovation", img: p3, alt: "Office Renovation - ABM DesignTech" },
+  ]
+
   return (
-    <section id="projects" aria-label="Projects Section" className="w-full bg-black py-16 px-4 text-white">
+    <section
+      id="projects"
+      aria-label="Projects Section"
+      className="w-full bg-black py-16 px-4 text-white"
+    >
       <h2 className="text-3xl font-bold text-center mb-12">Our Projects</h2>
 
       <div className="grid md:grid-cols-3 gap-8">
@@ -33,5 +38,5 @@ export default function Projects() {
         ))}
       </div>
     </section>
-  );
+  )
 }
