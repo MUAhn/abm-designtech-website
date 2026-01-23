@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import hero from "../assets/logo.webp" // Using logo.webp as hero for now
+import logo from "../assets/logo.webp" // optional, can use public/assets/logo.webp directly
 
 export default function Home() {
   return (
@@ -9,16 +9,13 @@ export default function Home() {
       className="relative w-full min-h-screen flex items-center justify-center bg-black text-white"
     >
       {/* Hero Image */}
-      <div className="absolute inset-0">
-        <img
-          src={hero}
-          alt="ABM DesignTech Hero Banner"
-          className="w-full h-full object-cover"
-          width={1920}
-          height={1080}
-          loading="lazy"
-        />
-      </div>
+      <img
+        src="/assets/logo.webp"
+        alt="ABM DesignTech Hero Banner"
+        className="absolute inset-0 w-full h-full object-cover"
+        width={1920} height={1080}
+        loading="lazy"
+      />
 
       {/* Hero Text */}
       <div className="relative z-10 text-center px-4">
