@@ -1,6 +1,3 @@
-import { motion } from "framer-motion"
-import logo from "../assets/logo.webp" // optional, can use public/assets/logo.webp directly
-
 export default function Home() {
   return (
     <section
@@ -8,16 +5,12 @@ export default function Home() {
       aria-label="Home Section"
       className="relative w-full min-h-screen flex items-center justify-center bg-black text-white"
     >
-      {/* Hero Image */}
       <img
         src="/assets/logo.webp"
         alt="ABM DesignTech Hero Banner"
         className="absolute inset-0 w-full h-full object-cover"
         width={1920} height={1080}
-        loading="lazy"
       />
-
-      {/* Hero Text */}
       <div className="relative z-10 text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
           Build Smart. Build Digital.

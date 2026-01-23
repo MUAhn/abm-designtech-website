@@ -1,14 +1,16 @@
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, Suspense, lazy } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 
 import Navbar from "./components/Navbar"
-import Home from "./pages/Home"
-import Services from "./pages/Services"
-import Projects from "./pages/Projects"
-import Contact from "./pages/Contact"
 import Footer from "./components/Footer"
 import FloatingButtons from "./components/FloatingButtons"
 import PageLoader from "./components/PageLoader"
+
+// Lazy load pages
+const Home = lazy(() => import("./pages/Home"))
+const Services = lazy(() => import("./pages/Services"))
+const Projects = lazy(() => import("./pages/Projects"))
+const Contact = lazy(() => import("./pages/Contact"))
 
 export default function App() {
   const [loading, setLoading] = useState(true)
@@ -16,9 +18,7 @@ export default function App() {
   return (
     <>
       <AnimatePresence>
-        {loading && (
-          <PageLoader onFinish={() => setLoading(false)} />
-        )}
+        {loading && <PageLoader onFinish={() => setLoading(false)} />}
       </AnimatePresence>
 
       {!loading && (
@@ -29,10 +29,12 @@ export default function App() {
           className="bg-black text-white"
         >
           <Navbar />
-          <Home />
-          <Services />
-          <Projects />
-          <Contact />
+          <Suspense fallback={null}>
+            <Home />
+            <Services />
+            <Projects />
+            <Contact />
+          </Suspense>
           <Footer />
           <FloatingButtons />
         </motion.div>

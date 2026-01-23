@@ -1,24 +1,12 @@
-import { Phone, Mail, MessageCircle } from "lucide-react"
-
-export default function FloatingButtons() {
+export default function Footer() {
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
-
-      {/* WhatsApp */}
-      <a href="https://wa.me/94771053402" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
-        <MessageCircle />
-      </a>
-
-      {/* Call */}
-      <a href="tel:+94772336318" aria-label="Call Now" className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
-        <Phone />
-      </a>
-
-      {/* Email */}
-      <a href="mailto:contact@abmdesigntech.com" aria-label="Send Email" className="w-14 h-14 rounded-full bg-yellow-500 flex items-center justify-center text-black shadow-lg hover:scale-110 transition">
-        <Mail />
-      </a>
-
-    </div>
+    <footer className="bg-black/90 text-gray-400 py-10 mt-20">
+      <div className="max-w-7xl mx-auto px-4 text-center md:text-left">
+        <p className="mb-2">&copy; {new Date().getFullYear()} ABM DesignTech. All rights reserved.</p>
+        <p className="text-sm">
+          Contact us: <a href="mailto:contact@abmbuildtech.com" className="hover:text-yellow-400">contact@abmbuildtech.com</a> | +94 77 105 3402
+        </p>
+      </div>
+    </footer>
   )
 }

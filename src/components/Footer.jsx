@@ -1,51 +1,32 @@
-export default function Footer() {
+import { useState } from "react"
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false)
   return (
-    <footer className="bg-black/60 backdrop-blur-xl border-t border-white/10 text-gray-400">
-      <div className="max-w-7xl mx-auto px-8 py-12 grid md:grid-cols-3 gap-8">
-
-        {/* Company */}
-        <div>
-          <h3 className="text-white text-lg font-bold mb-3">ABM DesignTech</h3>
-          <p className="text-sm">
-            Smart. Digital. BIM-powered construction & design solutions.
-          </p>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Quick Links</h4>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#home" className="hover:text-yellow-400">Home</a></li>
-            <li><a href="#services" className="hover:text-yellow-400">Services</a></li>
-            <li><a href="#projects" className="hover:text-yellow-400">Projects</a></li>
-            <li><a href="#contact" className="hover:text-yellow-400">Contact</a></li>
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Contact</h4>
-          <a
-            href="tel:+94771053402"
-            className="block text-sm hover:text-yellow-400 transition"
-          >
-            📞 +94 77 105 3402
-          </a>
-
-          <a
-            href="mailto:contact@abmdesigntech.com"
-            className="block text-sm hover:text-yellow-400 transition"
-          >
-            ✉️ contact@abmdesigntech.com
-          </a>
-          <p className="text-sm">📍 Sri Lanka</p>
-        </div>
-
+    <nav className="fixed top-0 w-full bg-black/70 backdrop-blur-md z-50">
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+        <img
+          src="/assets/logo.webp"
+          alt="ABM DesignTech Logo"
+          width={120} height={40}
+        />
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle Menu"
+          className="text-white md:hidden"
+        >
+          Menu
+        </button>
+        <ul className={`md:flex md:gap-8 absolute md:static top-full left-0 w-full md:w-auto bg-black md:bg-transparent transition-all ${open ? "max-h-64" : "max-h-0 overflow-hidden"}`}>
+          {["Home", "Services", "Projects", "Contact"].map((item) => (
+            <li key={item}>
+              <a href={`#${item.toLowerCase()}`} className="block px-4 py-2 text-white hover:text-yellow-400">
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <div className="border-t border-white/10 text-center py-4 text-sm">
-        © {new Date().getFullYear()} ABM DesignTech. All rights reserved.
-      </div>
-    </footer>
+    </nav>
   )
 }

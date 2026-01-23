@@ -1,46 +1,32 @@
 import { useState } from "react"
-import logo from "../assets/logo.webp"
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-
   return (
-    <nav className="fixed w-full bg-black/80 backdrop-blur-xl border-b border-white/10 text-white z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <a href="#home" aria-label="ABM DesignTech Home">
-          <img src={logo} alt="ABM DesignTech Logo" width={150} height={50} />
-        </a>
-
-        {/* Menu */}
-        <div className="hidden md:flex gap-6">
-          <a href="#home" className="hover:text-yellow-400 transition">Home</a>
-          <a href="#services" className="hover:text-yellow-400 transition">Services</a>
-          <a href="#projects" className="hover:text-yellow-400 transition">Projects</a>
-          <a href="#contact" className="hover:text-yellow-400 transition">Contact</a>
-        </div>
-
-        {/* Mobile Toggle */}
+    <nav className="fixed top-0 w-full bg-black/70 backdrop-blur-md z-50">
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+        <img
+          src="/assets/logo.webp"
+          alt="ABM DesignTech Logo"
+          width={120} height={40}
+        />
         <button
-          className="md:hidden p-2 rounded hover:bg-white/10 transition"
           onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label="Toggle Menu"
+          className="text-white md:hidden"
         >
-          <span className="block w-6 h-0.5 bg-white mb-1" />
-          <span className="block w-6 h-0.5 bg-white mb-1" />
-          <span className="block w-6 h-0.5 bg-white" />
+          Menu
         </button>
+        <ul className={`md:flex md:gap-8 absolute md:static top-full left-0 w-full md:w-auto bg-black md:bg-transparent transition-all ${open ? "max-h-64" : "max-h-0 overflow-hidden"}`}>
+          {["Home", "Services", "Projects", "Contact"].map((item) => (
+            <li key={item}>
+              <a href={`#${item.toLowerCase()}`} className="block px-4 py-2 text-white hover:text-yellow-400">
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden flex flex-col gap-4 px-6 pb-6">
-          <a href="#home" className="hover:text-yellow-400 transition">Home</a>
-          <a href="#services" className="hover:text-yellow-400 transition">Services</a>
-          <a href="#projects" className="hover:text-yellow-400 transition">Projects</a>
-          <a href="#contact" className="hover:text-yellow-400 transition">Contact</a>
-        </div>
-      )}
     </nav>
   )
 }

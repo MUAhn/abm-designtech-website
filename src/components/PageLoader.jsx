@@ -1,8 +1,7 @@
-import { memo } from "react"
 import { motion } from "framer-motion"
-import logo from "../assets/logo.WebP"
+import logo from "/assets/logo.webp"
 
-function PageLoader({ onFinish }) {
+export default function PageLoader({ onFinish }) {
   return (
     <motion.div
       className="fixed inset-0 z-[999] bg-black flex items-center justify-center"
@@ -12,18 +11,14 @@ function PageLoader({ onFinish }) {
       transition={{ duration: 1 }}
     >
       <div className="text-center">
-
-        {/* Logo */}
         <motion.img
           src={logo}
           className="w-24 mx-auto mb-6"
-          alt="ABM DesignTech Logo"
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
+          alt="ABM DesignTech Logo"
         />
-
-        {/* Site Name */}
         <motion.div
           className="text-white text-xl tracking-widest mb-6"
           initial={{ opacity: 0 }}
@@ -33,7 +28,6 @@ function PageLoader({ onFinish }) {
           ABM DESIGNTECH
         </motion.div>
 
-        {/* Progress Bar */}
         <motion.div className="w-48 h-[2px] bg-white/20 overflow-hidden mx-auto">
           <motion.div
             className="h-full bg-yellow-400"
@@ -43,11 +37,7 @@ function PageLoader({ onFinish }) {
             onAnimationComplete={onFinish}
           />
         </motion.div>
-
       </div>
     </motion.div>
   )
 }
-
-// Memoize to avoid re-renders
-export default memo(PageLoader)
