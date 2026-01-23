@@ -1,8 +1,12 @@
+import project1 from "../assets/projects/project1.webp";
+import project2 from "../assets/projects/project2.webp";
+import project3 from "../assets/projects/project3.webp";
+
 const projects = [
-  { id: 1, title: "Luxury Residence", img: "/assets/projects/project1.webp", alt: "Luxury Residence - ABM DesignTech" },
-  { id: 2, title: "Commercial Complex", img: "/assets/projects/project2.webp", alt: "Commercial Complex - ABM DesignTech" },
-  { id: 3, title: "Office Renovation", img: "/assets/projects/project3.webp", alt: "Office Renovation - ABM DesignTech" },
-]
+  { id: 1, title: "Luxury Residence", img: project1, alt: "Luxury Residence - ABM DesignTech" },
+  { id: 2, title: "Commercial Complex", img: project2, alt: "Commercial Complex - ABM DesignTech" },
+  { id: 3, title: "Office Renovation", img: project3, alt: "Office Renovation - ABM DesignTech" },
+];
 
 export default function Projects() {
   return (
@@ -33,5 +37,5 @@ export default function Projects() {
         ))}
       </div>
     </section>
-  )
+  );
 }
