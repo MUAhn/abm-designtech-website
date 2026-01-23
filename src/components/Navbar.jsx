@@ -1,20 +1,24 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, memo } from "react"
 import { Menu, X } from "lucide-react"
 import logo from "../assets/logo.png"
+import { motion, AnimatePresence } from "framer-motion"
 
-export default function Navbar() {
+function Navbar() {
   const [active, setActive] = useState("home")
   const [open, setOpen] = useState(false)
 
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto"
+  }, [open])
+
+  // Track active section with IntersectionObserver
   useEffect(() => {
     const sections = ["home", "services", "projects", "contact"]
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id)
-          }
+          if (entry.isIntersecting) setActive(entry.target.id)
         })
       },
       { rootMargin: "-40% 0px -40% 0px" }
@@ -54,7 +58,6 @@ export default function Navbar() {
           <a href="#services" className={linkClass("services")}>Services</a>
           <a href="#projects" className={linkClass("projects")}>Projects</a>
           <a href="#contact" className={linkClass("contact")}>Contact</a>
-
           <a
             href="#contact"
             className="ml-4 px-5 py-2 rounded-lg bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition"
@@ -63,34 +66,42 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Button */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
+          className="md:hidden text-white z-50"
         >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
-
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden bg-black border-t border-white/10 px-6 py-4">
-          <a onClick={() => setOpen(false)} href="#home" className={linkClass("home")}>Home</a>
-          <a onClick={() => setOpen(false)} href="#services" className={linkClass("services")}>Services</a>
-          <a onClick={() => setOpen(false)} href="#projects" className={linkClass("projects")}>Projects</a>
-          <a onClick={() => setOpen(false)} href="#contact" className={linkClass("contact")}>Contact</a>
-
-          <a
-            onClick={() => setOpen(false)}
-            href="#contact"
-            className="block mt-4 text-center px-5 py-3 rounded-lg bg-yellow-500 text-black font-semibold"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-black border-t border-white/10 px-6 py-4 overflow-hidden"
           >
-            Get Quote
-          </a>
-        </div>
-      )}
-
+            <a onClick={() => setOpen(false)} href="#home" className={linkClass("home")}>Home</a>
+            <a onClick={() => setOpen(false)} href="#services" className={linkClass("services")}>Services</a>
+            <a onClick={() => setOpen(false)} href="#projects" className={linkClass("projects")}>Projects</a>
+            <a onClick={() => setOpen(false)} href="#contact" className={linkClass("contact")}>Contact</a>
+            <a
+              onClick={() => setOpen(false)}
+              href="#contact"
+              className="block mt-4 text-center px-5 py-3 rounded-lg bg-yellow-500 text-black font-semibold"
+            >
+              Get Quote
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }
+
+// Memoize for performance
+export default memo(Navbar)

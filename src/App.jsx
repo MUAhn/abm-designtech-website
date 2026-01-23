@@ -1,26 +1,33 @@
-import { useState } from "react"
+import { useState, Suspense, lazy, memo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import Navbar from "./components/Navbar"
-import Home from "./pages/Home"
-import Services from "./pages/Services"
-import Projects from "./pages/Projects"
-import Contact from "./pages/Contact"
 import Footer from "./components/Footer"
 import FloatingButtons from "./components/FloatingButtons"
 import PageLoader from "./components/PageLoader"
+
+// Lazy-loaded pages
+const Home = lazy(() => import("./pages/Home"))
+const Services = lazy(() => import("./pages/Services"))
+const Projects = lazy(() => import("./pages/Projects"))
+const Contact = lazy(() => import("./pages/Contact"))
+
+// Memoize static components
+const MemoNavbar = memo(Navbar)
+const MemoFooter = memo(Footer)
+const MemoFloatingButtons = memo(FloatingButtons)
 
 export default function App() {
   const [loading, setLoading] = useState(true)
 
   return (
     <>
+      {/* Page Loader */}
       <AnimatePresence>
-        {loading && (
-          <PageLoader onFinish={() => setLoading(false)} />
-        )}
+        {loading && <PageLoader onFinish={() => setLoading(false)} />}
       </AnimatePresence>
 
+      {/* Main Content */}
       {!loading && (
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -28,13 +35,15 @@ export default function App() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="bg-black text-white"
         >
-          <Navbar />
-          <Home />
-          <Services />
-          <Projects />
-          <Contact />
-          <Footer />
-          <FloatingButtons />
+          <MemoNavbar />
+          <Suspense fallback={<div className="text-center py-20 text-gray-300">Loading content...</div>}>
+            <Home />
+            <Services />
+            <Projects />
+            <Contact />
+          </Suspense>
+          <MemoFooter />
+          <MemoFloatingButtons />
         </motion.div>
       )}
     </>
