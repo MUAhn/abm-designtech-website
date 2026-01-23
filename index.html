@@ -1,78 +1,73 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Charset -->
-    <meta charset="UTF-8" />
+<head>
+  <!-- Charset -->
+  <meta charset="UTF-8" />
 
-    <!-- Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Preconnect Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preload Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <!-- Preload Hero Image (for LCP) -->
-    <link rel="preload" as="image" href="/assets/hero.webp">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://abm-designtech-website.vercel.app/" />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://abm-designtech-website.vercel.app/" />
+  <!-- Preload Hero & Key Images -->
+  <link rel="preload" as="image" href="/assets/hero.webp">
+  <link rel="preload" as="image" href="/assets/projects/project1.webp">
+  <link rel="preload" as="image" href="/assets/projects/project2.webp">
+  <link rel="preload" as="image" href="/assets/projects/project3.webp">
 
-    <!-- Primary Meta Tags -->
-    <title>ABM DesignTech — BIM & Digital Construction Solutions in Sri Lanka</title>
-    <meta name="title" content="ABM DesignTech — BIM & Digital Construction Solutions in Sri Lanka" />
-    <meta name="description" content="ABM DesignTech provides professional BIM, 3D modeling, 4D planning, 5D cost estimation and digital construction solutions in Sri Lanka." />
-    <meta name="author" content="ABM DesignTech" />
-    <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="BIM Sri Lanka, Construction BIM, 3D Modeling, 4D Planning, 5D Estimation, ABM DesignTech" />
+  <!-- Primary Meta Tags -->
+  <title>ABM DesignTech — BIM & Digital Construction Solutions in Sri Lanka</title>
+  <meta name="title" content="ABM DesignTech — BIM & Digital Construction Solutions in Sri Lanka" />
+  <meta name="description" content="ABM DesignTech provides professional BIM, 3D modeling, 4D planning, 5D cost estimation and digital construction solutions in Sri Lanka." />
+  <meta name="author" content="ABM DesignTech" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="BIM Sri Lanka, Construction BIM, 3D Modeling, 4D Planning, 5D Estimation, ABM DesignTech" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://abm-designtech-website.vercel.app/" />
-    <meta property="og:title" content="ABM DesignTech — BIM & Digital Construction Solutions" />
-    <meta property="og:description" content="Professional BIM, 3D modeling, 4D planning, 5D estimation and digital construction solutions in Sri Lanka." />
-    <meta property="og:image" content="https://abm-designtech-website.vercel.app/assets/hero.webp" />
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://abm-designtech-website.vercel.app/" />
+  <meta property="og:title" content="ABM DesignTech — BIM & Digital Construction Solutions" />
+  <meta property="og:description" content="Professional BIM, 3D modeling, 4D planning, 5D estimation and digital construction solutions in Sri Lanka." />
+  <meta property="og:image" content="https://abm-designtech-website.vercel.app/favicon.png" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="ABM DesignTech — BIM & Digital Construction Solutions" />
-    <meta property="twitter:description" content="Professional BIM, 3D modeling, 4D planning, 5D estimation and digital construction solutions in Sri Lanka." />
-    <meta property="twitter:image" content="https://abm-designtech-website.vercel.app/assets/hero.webp" />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="ABM DesignTech — BIM & Digital Construction Solutions" />
+  <meta property="twitter:description" content="Professional BIM, 3D modeling, 4D planning, 5D estimation and digital construction solutions in Sri Lanka." />
+  <meta property="twitter:image" content="https://abm-designtech-website.vercel.app/favicon.png" />
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "ABM DesignTech",
-      "url": "https://abm-designtech-website.vercel.app/",
-      "logo": "https://abm-designtech-website.vercel.app/assets/logo.png",
-      "description": "ABM DesignTech provides BIM, 3D modeling, 4D planning, and 5D cost estimation services in Sri Lanka.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "Sri Lanka"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+94 77 105 3402",
-        "contactType": "customer service"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/",
-        "https://www.facebook.com/"
-      ]
-    }
-    </script>
-
-  </head>
-  <body class="bg-black text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ABM DesignTech",
+    "url": "https://abm-designtech-website.vercel.app/",
+    "logo": "https://abm-designtech-website.vercel.app/favicon.png",
+    "description": "ABM DesignTech provides BIM, 3D modeling, 4D planning, and 5D cost estimation services in Sri Lanka.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "Sri Lanka"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+94 77 105 3402",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/",
+      "https://www.facebook.com/"
+    ]
+  }
+  </script>
+</head>

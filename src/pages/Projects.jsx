@@ -1,7 +1,7 @@
 const projects = [
-  { id: 1, title: "Luxury Residence", img: "/assets/project1.webp", alt: "Luxury Residence - ABM DesignTech" },
-  { id: 2, title: "Commercial Complex", img: "/assets/project2.webp", alt: "Commercial Complex - ABM DesignTech" },
-  { id: 3, title: "Office Renovation", img: "/assets/project3.webp", alt: "Office Renovation - ABM DesignTech" },
+  { id: 1, title: "Luxury Residence", img: "/assets/projects/project1.webp", alt: "Luxury Residence - ABM DesignTech" },
+  { id: 2, title: "Commercial Complex", img: "/assets/projects/project2.webp", alt: "Commercial Complex - ABM DesignTech" },
+  { id: 3, title: "Office Renovation", img: "/assets/projects/project3.webp", alt: "Office Renovation - ABM DesignTech" },
 ]
 
 export default function Projects() {
@@ -15,17 +15,15 @@ export default function Projects() {
 
       <div className="grid md:grid-cols-3 gap-8">
         {projects.map(({ id, title, img, alt }) => (
-          <div
-            key={id}
-            className="relative rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-          >
+          <div key={id} className="relative rounded-lg overflow-hidden shadow-lg">
             <div className="aspect-[16/9] w-full">
               <img
                 src={img}
                 alt={alt}
                 loading="lazy"
                 className="w-full h-full object-cover"
-                width={640} height={360}
+                width={640}
+                height={360}
               />
             </div>
             <div className="absolute bottom-0 left-0 w-full bg-black/60 p-4">
