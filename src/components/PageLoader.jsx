@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { motion } from "framer-motion"
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.WebP"
 
 function PageLoader({ onFinish }) {
   return (
