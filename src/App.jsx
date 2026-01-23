@@ -22,12 +22,10 @@ export default function App() {
 
   return (
     <>
-      {/* Page Loader */}
       <AnimatePresence>
         {loading && <PageLoader onFinish={() => setLoading(false)} />}
       </AnimatePresence>
 
-      {/* Main Content */}
       {!loading && (
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -36,12 +34,33 @@ export default function App() {
           className="bg-black text-white"
         >
           <MemoNavbar />
-          <Suspense fallback={<div className="text-center py-20 text-gray-300">Loading content...</div>}>
-            <Home />
-            <Services />
-            <Projects />
-            <Contact />
-          </Suspense>
+
+          <main>
+            <section id="home" aria-label="Home Section">
+              <Suspense fallback={<div className="text-center py-20 text-gray-200">Loading...</div>}>
+                <Home />
+              </Suspense>
+            </section>
+
+            <section id="services" aria-label="Services Section">
+              <Suspense fallback={<div className="text-center py-20 text-gray-200">Loading...</div>}>
+                <Services />
+              </Suspense>
+            </section>
+
+            <section id="projects" aria-label="Projects Section">
+              <Suspense fallback={<div className="text-center py-20 text-gray-200">Loading...</div>}>
+                <Projects />
+              </Suspense>
+            </section>
+
+            <section id="contact" aria-label="Contact Section">
+              <Suspense fallback={<div className="text-center py-20 text-gray-200">Loading...</div>}>
+                <Contact />
+              </Suspense>
+            </section>
+          </main>
+
           <MemoFooter />
           <MemoFloatingButtons />
         </motion.div>
