@@ -1,32 +1,37 @@
-import { useState } from "react"
+import { NavLink } from "react-router-dom";
+import logo from "/assets/logo.webp";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
   return (
-    <nav className="fixed top-0 w-full bg-black/70 backdrop-blur-md z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
-        <img
-          src="/assets/logo.webp"
-          alt="ABM DesignTech Logo"
-          width={120} height={40}
-        />
-        <button
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle Menu"
-          className="text-white md:hidden"
-        >
-          Menu
-        </button>
-        <ul className={`md:flex md:gap-8 absolute md:static top-full left-0 w-full md:w-auto bg-black md:bg-transparent transition-all ${open ? "max-h-64" : "max-h-0 overflow-hidden"}`}>
+    <header className="fixed top-0 w-full z-50 bg-black/70 backdrop-blur-xl border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        {/* Logo */}
+        <div className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="ABM DesignTech"
+            className="h-10 w-auto drop-shadow-[0_0_12px_rgba(245,197,24,0.6)]"
+          />
+          <span className="text-white font-semibold tracking-wide">
+            ABM DesignTech
+          </span>
+        </div>
+
+        {/* Nav */}
+        <nav className="hidden md:flex gap-8 text-white/80">
           {["Home", "Services", "Projects", "Contact"].map((item) => (
-            <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="block px-4 py-2 text-white hover:text-yellow-400">
-                {item}
-              </a>
-            </li>
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="relative hover:text-white transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#f5c518] hover:after:w-full after:transition-all"
+            >
+              {item}
+            </a>
           ))}
-        </ul>
+        </nav>
+
       </div>
-    </nav>
-  )
+    </header>
+  );
 }

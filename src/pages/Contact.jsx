@@ -2,43 +2,62 @@ import { motion } from "framer-motion"
 
 export default function Contact() {
   return (
-    <section id="contact" aria-label="Contact Section" className="min-h-screen pt-24 pb-24 bg-neutral-950 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-transparent pointer-events-none" />
+    <section id="contact" className="pt-24 pb-24 bg-black text-white">
+      <div className="max-w-7xl mx-auto px-8">
 
-      <div className="max-w-7xl mx-auto px-8 relative">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="mb-12">
-          <h2 className="text-4xl font-bold">Contact <span className="text-yellow-400">Us</span></h2>
-          <p className="text-gray-400 mt-3 max-w-2xl">Let’s discuss your project. Reach us via call, WhatsApp, or email.</p>
-        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold mb-12"
+        >
+          Contact <span className="text-yellow-400">Us</span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Contact Info */}
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.15 } } }} className="space-y-6">
-            {[
-              { label: "Phone", value: "+94 77 105 3402" },
-              { label: "WhatsApp", value: "+94 77 233 6318" },
-              { label: "Email", value: "contact@abmbuildtech.com" },
-            ].map((item, i) => (
-              <motion.div key={i} variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }} whileHover={{ y: -6, scale: 1.01 }} className="relative group p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-                <div className="relative">
-                  <div className="text-sm text-gray-400">{item.label}</div>
-                  <div className="text-lg font-semibold">{item.value}</div>
-                </div>
-              </motion.div>
-            ))}
+        <div className="grid md:grid-cols-2 gap-12">
+
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-xl font-semibold mb-4">Let’s discuss your project</h3>
+            <p className="text-gray-400 mb-6">
+              We provide BIM and digital construction solutions for residential and commercial projects.
+            </p>
+
+            <div className="space-y-4 text-gray-300">
+              <div>📞 +94 XX XXX XXXX</div>
+              <div>📧 abmdesigntech@gmail.com</div>
+              <div>📍 Sri Lanka</div>
+            </div>
           </motion.div>
 
-          {/* Contact Form */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} className="relative group p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 overflow-hidden">
-            <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <form className="relative space-y-4">
-              <input className="w-full p-3 rounded-lg bg-neutral-900/80 border border-white/10 focus:outline-none focus:border-yellow-400 transition" placeholder="Your Name" aria-label="Your Name"/>
-              <input className="w-full p-3 rounded-lg bg-neutral-900/80 border border-white/10 focus:outline-none focus:border-yellow-400 transition" placeholder="Your Email" aria-label="Your Email"/>
-              <textarea className="w-full p-3 rounded-lg bg-neutral-900/80 border border-white/10 focus:outline-none focus:border-yellow-400 transition" rows="5" placeholder="Your Message" aria-label="Your Message"/>
-              <button className="w-full py-3 rounded-lg bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition shadow-lg shadow-yellow-500/20" aria-label="Send Message">Send Message</button>
-            </form>
-          </motion.div>
+          <motion.form
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <input
+              className="w-full p-3 bg-white/5 border border-white/10 rounded-lg"
+              placeholder="Your Name"
+            />
+            <input
+              className="w-full p-3 bg-white/5 border border-white/10 rounded-lg"
+              placeholder="Your Email"
+            />
+            <textarea
+              rows="5"
+              className="w-full p-3 bg-white/5 border border-white/10 rounded-lg"
+              placeholder="Your Message"
+            />
+
+            <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold">
+              Send Message
+            </button>
+          </motion.form>
+
         </div>
       </div>
     </section>

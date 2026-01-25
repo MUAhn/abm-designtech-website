@@ -1,30 +1,35 @@
 export default function Home() {
   return (
-    <section
-      id="home"
-      aria-label="Home Section"
-      className="relative w-full min-h-screen flex items-center justify-center bg-black text-white"
-    >
-      <img
-        src="/assets/logo.webp"
-        alt="ABM DesignTech Hero Banner"
-        className="absolute inset-0 w-full h-full object-cover"
-        width={1920} height={1080}
-      />
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Build Smart. Build Digital.
+    <section id="home" className="min-h-screen flex items-center justify-center bg-black text-white pt-24">
+      <div className="text-center max-w-4xl px-6">
+
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <span className="text-gold">BIM & Digital</span> Construction
+          <br /> Solutions in Sri Lanka
         </h1>
-        <p className="text-lg md:text-xl text-gray-200 mb-6">
-          BIM, 3D Modeling, 4D Planning & 5D Estimation in Sri Lanka
+
+        <p className="text-white/70 text-lg mb-10">
+          We deliver high-end BIM, 3D modeling, 4D planning, and 5D cost
+          estimation for modern construction projects.
         </p>
-        <a
-          href="#contact"
-          className="inline-block px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
-        >
-          Get a Quote
-        </a>
+
+        <div className="flex justify-center gap-6">
+          <a
+            href="#projects"
+            className="px-8 py-4 bg-gold text-black font-semibold rounded-xl glow-gold hover:scale-105 transition"
+          >
+            View Projects
+          </a>
+
+          <a
+            href="#contact"
+            className="px-8 py-4 border border-gold text-gold rounded-xl hover:bg-gold hover:text-black transition"
+          >
+            Contact Us
+          </a>
+        </div>
+
       </div>
     </section>
-  )
+  );
 }
