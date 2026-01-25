@@ -4,7 +4,7 @@ export default function FloatingButtons() {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/947XXXXXXXX"
+        href="https://wa.me/94772336318"
         target="_blank"
         className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition"
         aria-label="WhatsApp"
@@ -14,7 +14,7 @@ export default function FloatingButtons() {
 
       {/* Call */}
       <a
-        href="tel:+947XXXXXXXX"
+        href="tel:+94772336318"
         className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition"
         aria-label="Call"
       >

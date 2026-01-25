@@ -27,7 +27,7 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4 text-gray-300">
-              <div>📞 +94 XX XXX XXXX</div>
+              <div>📞 +94 77 233 6318</div>
               <div>📧 abmdesigntech@gmail.com</div>
               <div>📍 Sri Lanka</div>
             </div>
