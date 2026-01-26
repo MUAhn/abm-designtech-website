@@ -27,7 +27,7 @@ export default function Navbar() {
             width={160}
             height={40}
             className="h-10 w-auto drop-shadow-[0_0_12px_rgba(245,197,24,0.6)]"
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
           <span className="text-white font-semibold tracking-wide">
