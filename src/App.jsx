@@ -11,8 +11,8 @@ export default function App() {
     <div className="bg-black text-white min-h-screen">
       <Navbar />
 
-      {/* Push content below fixed navbar */}
-      <main className="pt-24">
+      {/* Main Content Landmark */}
+      <main id="main-content" className="pt-24" role="main">
         <Home />
         <Services />
         <Projects />
