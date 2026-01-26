@@ -1,33 +1,99 @@
-import logo from "../assets/logo.webp";
+import { useState } from "react";
 
-export default function Footer() {
+// ✅ Import images
+import c1a from "../assets/projects/commercial/office1-1.webp";
+import c1b from "../assets/projects/commercial/office1-2.webp";
+import c2a from "../assets/projects/commercial/office2-1.webp";
+
+import r1a from "../assets/projects/residential/house1-1.webp";
+import r1b from "../assets/projects/residential/house1-2.webp";
+
+import i1a from "../assets/projects/interior/interior1-1.webp";
+import i1b from "../assets/projects/interior/interior1-2.webp";
+
+// ✅ Project Data
+const PROJECTS = {
+  commercial: [
+    {
+      title: "Office Complex",
+      images: [c1a, c1b],
+    },
+    {
+      title: "Commercial Building",
+      images: [c2a],
+    },
+  ],
+
+  residential: [
+    {
+      title: "Luxury House",
+      images: [r1a, r1b],
+    },
+  ],
+
+  interior: [
+    {
+      title: "Modern Interior",
+      images: [i1a, i1b],
+    },
+  ],
+};
+
+export default function Projects() {
+  const [active, setActive] = useState("commercial");
+
   return (
-    <footer
-      className="bg-[#0b0b0b] border-t border-white/10 text-gray-400"
-      aria-label="Website footer"
-    >
-      <div className="max-w-7xl mx-auto px-8 py-10 text-center">
+    <section id="projects" className="py-32 bg-black text-white">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="flex justify-center items-center gap-3 mb-4">
-          <img
-            src={logo}
-            alt="ABM DesignTech logo"
-            width={45}
-            height={40}
-            className="h-10 w-auto object-contain"
-            loading="lazy"
-            decoding="async"
-          />
-          <span className="font-semibold text-white">
-            ABM DesignTech
-          </span>
+        <h2 className="text-4xl font-bold mb-10 text-center text-gold">
+          Our Projects
+        </h2>
+
+        {/* Tabs */}
+        <div className="flex justify-center gap-6 mb-12">
+          {["commercial", "residential", "interior"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-6 py-2 rounded-full border transition ${
+                active === cat
+                  ? "bg-gold text-black border-gold"
+                  : "border-white/20 text-white hover:border-gold"
+              }`}
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
         </div>
 
-        <p className="text-sm">
-          © {new Date().getFullYear()} ABM DesignTech. All rights reserved.
-        </p>
+        {/* Projects */}
+        <div className="space-y-16">
+
+          {PROJECTS[active].map((project, i) => (
+            <div key={i}>
+              <h3 className="text-2xl font-semibold mb-6 text-center">
+                {project.title}
+              </h3>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {project.images.map((img, idx) => (
+                  <div key={idx} className="glow-card overflow-hidden">
+                    <img
+                      src={img}
+                      alt={project.title}
+                      loading="lazy"
+                      className="w-full h-64 object-cover hover:scale-110 transition duration-500"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+        </div>
 
       </div>
-    </footer>
+    </section>
   );
 }
