@@ -1,8 +1,8 @@
-const projects = [
-  "../assets/project1.webp",
-  "../assets/project2.webp",
-  "../assets/project3.webp",
-];
+import project1 from "../assets/project1.webp";
+import project2 from "../assets/project2.webp";
+import project3 from "../assets/project3.webp";
+
+const projects = [project1, project2, project3];
 
 export default function Projects() {
   return (
@@ -18,8 +18,9 @@ export default function Projects() {
             <div key={i} className="glow-card overflow-hidden">
               <img
                 src={img}
-                alt="Project"
-                className="w-full h-64 object-cover hover:scale-110 transition duration-500"
+                alt={`Project ${i + 1}`}
+                loading="lazy"
+                className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
               />
             </div>
           ))}

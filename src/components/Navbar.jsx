@@ -24,9 +24,9 @@ export default function Navbar() {
           <img
             src={logo}
             alt="ABM DesignTech logo"
-            width={160}
+            width={45}
             height={40}
-            className="h-10 w-auto drop-shadow-[0_0_12px_rgba(245,197,24,0.6)]"
+            className="h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(245,197,24,0.6)]"
             loading="lazy"
             decoding="async"
           />

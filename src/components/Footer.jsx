@@ -12,9 +12,9 @@ export default function Footer() {
           <img
             src={logo}
             alt="ABM DesignTech logo"
-            width={40}
+            width={45}
             height={40}
-            className="w-10 h-10"
+            className="h-10 w-auto object-contain"
             loading="lazy"
             decoding="async"
           />
