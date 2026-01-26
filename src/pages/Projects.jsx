@@ -1,7 +1,7 @@
 const projects = [
-  "/assets/project1.webp",
-  "/assets/project2.webp",
-  "/assets/project3.webp",
+  "../assets/project1.webp",
+  "../assets/project2.webp",
+  "../assets/project3.webp",
 ];
 
 export default function Projects() {
