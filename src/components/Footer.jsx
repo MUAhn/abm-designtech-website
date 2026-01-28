@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         <p className="text-sm">
-          © {new Date().getFullYear()} ABM DesignTech. All rights reserved.
+          © {new Date().getFullYear()} ABM DesignTech Pvt Ltd. All rights reserved.
         </p>
 
       </div>
