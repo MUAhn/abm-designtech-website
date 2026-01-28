@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
@@ -34,26 +34,40 @@ export default function Contact() {
           </motion.div>
 
           <motion.form
+            action="https://formspree.io/f/mwvojjvj"   // 🔴 PUT YOUR FORM URL HERE
+            method="POST"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-4"
           >
             <input
+              name="name"
+              required
               className="w-full p-3 bg-white/5 border border-white/10 rounded-lg"
               placeholder="Your Name"
             />
+
             <input
+              type="email"
+              name="email"
+              required
               className="w-full p-3 bg-white/5 border border-white/10 rounded-lg"
               placeholder="Your Email"
             />
+
             <textarea
+              name="message"
               rows="5"
+              required
               className="w-full p-3 bg-white/5 border border-white/10 rounded-lg"
               placeholder="Your Message"
             />
 
-            <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold">
+            <button
+              type="submit"
+              className="bg-yellow-500 hover:bg-yellow-400 transition text-black px-6 py-3 rounded-lg font-semibold"
+            >
               Send Message
             </button>
           </motion.form>
@@ -61,5 +75,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
