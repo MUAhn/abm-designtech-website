@@ -31,7 +31,7 @@ export default function Navbar() {
             decoding="async"
           />
           <span className="text-white font-semibold tracking-wide">
-            ABM DesignTech
+            ABM DesignTech Pvt Ltd
           </span>
         </a>
 

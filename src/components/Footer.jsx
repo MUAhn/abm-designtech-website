@@ -19,7 +19,7 @@ export default function Footer() {
             decoding="async"
           />
           <span className="font-semibold text-white">
-            ABM DesignTech
+            ABM DesignTech Pvt Ltd
           </span>
         </div>
 
