@@ -34,7 +34,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.form
-            action="https://formspree.io/f/mwvojjvj"   // 🔴 PUT YOUR FORM URL HERE
+            action="https://formspree.io/f/mwvojjvj"   
             method="POST"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
